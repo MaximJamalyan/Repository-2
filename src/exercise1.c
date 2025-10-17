@@ -8,7 +8,7 @@ int main() {
         sum += array[i];
     }
     
-    printf("%.3f\n", sum / 10);
+    printf("%.3lf\n", sum / 10);
     return 0;
 
 }
