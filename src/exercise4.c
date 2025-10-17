@@ -16,7 +16,7 @@ int main(int argc, char** argv) {
     array[k] = x;
     
     for(int i = 0; i < 10; i++) {
-        printf("%g ", array[i]);
+        printf("%lf ", array[i]);
     }
     printf("\n");
     
