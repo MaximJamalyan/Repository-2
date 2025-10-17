@@ -1,33 +1,19 @@
-include <stdio.h>
 
-int main(int argc, char **argv) {
-    if (argc != 2) {
-        printf("Использование: ./exercise3 K\n");
-        return 1;
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char** argv) {
+    int g = atoi(argv[1]);
+    float num[10];
+    for(int i=0; i<10; i++) {
+        scanf("%f", &num[i]);
     }
-
-    int k;
-    sscanf(argv[1], "%d", &k);
-
-    double array[10];
-    printf("Введите десять вещественных чисел:\n");
-    for (int i = 0; i < 10; i++) {
-        scanf("%lf", &array[i]);
+    g = g%10;
+    if (g<0) {
+        g+=10;
     }
-
-    double result[10];
-    k = k % 10;
-    if (k < 0) k += 10;
-
-    for (int i = 0; i < 10; i++) {
-        result[(i + k) % 10] = array[i];
+    for(int i = 0; i<10; i++){
+        int index = (10 - g +i) %10;
+        printf("%.2f\n", num[index]);        
     }
-
-    printf("Результат сдвига:\n");
-    for (int i = 0; i < 10; i++) {
-        printf("%.2lf ", result[i]);
-    }
-    printf("\n");
-
-    return 0;
 }
