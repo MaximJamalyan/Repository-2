@@ -18,7 +18,8 @@ int max_subarray_sum(int* nums, int size)
     }
 
     return max_sum;
-}int length_of_lis(int* nums, int numsSize)
+}
+int length_of_lis(int* nums, int numsSize)
 {
     if (numsSize == 0) return 0;
 
@@ -26,17 +27,18 @@ int max_subarray_sum(int* nums, int size)
     int max_len = 1;
 
     for (int i = 0; i < numsSize; i++) {
-        dp[i] = 1; 
+        if (dp[i] == 0)
+            dp[i] = 1;
+
         for (int j = 0; j < i; j++) {
             if (nums[j] < nums[i] && dp[j] + 1 > dp[i]) {
                 dp[i] = dp[j] + 1;
             }
         }
+
         if (dp[i] > max_len)
             max_len = dp[i];
     }
 
     return max_len;
 }
-
-
