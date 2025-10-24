@@ -26,7 +26,7 @@ int max_subarray_sum(int* nums, int size)
     int max_len = 1;
 
     for (int i = 0; i < numsSize; i++) {
-        dp[i] = 1;  // каждая отдельная цифра — это подпоследовательность длиной 1
+        dp[i] = 1; 
         for (int j = 0; j < i; j++) {
             if (nums[j] < nums[i] && dp[j] + 1 > dp[i]) {
                 dp[i] = dp[j] + 1;
